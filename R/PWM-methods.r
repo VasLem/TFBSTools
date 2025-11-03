@@ -529,7 +529,7 @@ PWMPearson = function(pwm1, pwm2){
   pwm2 = normargPwm(pwm2)
   top = colSums((pwm1 - 0.25) * (pwm2 - 0.25))
   bottom = sqrt(colSums((pwm1 - 0.25)^2) * colSums((pwm2 - 0.25)^2))
-  r = 1 / ncol(pwm1) * sum((top / bottom))
+  r = 1 / ncol(pwm1) * sum((top / (bottom + 1e-10)))
   return(r)
 }
 
